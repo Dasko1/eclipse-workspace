@@ -13,7 +13,6 @@ public class Locators3 {
 		// Sibling - Child to parent traverse!
 		driver.get("http://www.rahulshettyacademy.com/AutomationPractice/");
 		System.out.println(driver.findElement(By.xpath("//header/div/button[1]/following-sibling::button[1]")).getText());
-
 	}
 
 }
