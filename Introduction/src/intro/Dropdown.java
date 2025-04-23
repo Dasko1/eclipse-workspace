@@ -17,5 +17,8 @@ public class Dropdown {
 		driver.findElement(By.xpath("//a[@value='BLR']")).click();
 		Thread.sleep(2500);
 		driver.findElement(By.xpath("(//a[@value='MAA'])[2]")).click();
+		
+		// This chooses the date!
+		driver.findElement(By.cssSelector(".ui-state-default.ui-state-active")).click();
 	}
 }
