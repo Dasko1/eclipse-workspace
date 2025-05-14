@@ -1,12 +1,16 @@
 package intro;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class base {
 
@@ -15,6 +19,9 @@ public class base {
 		
 		// System.setProperty("webdriver.chrome.driver", "C://Users//dadaskalopoulos//eclipse-workspace//chromedriver-win64//chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
+		// Explicit wait: this kind of wait targets a specific element!
+		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(5));
+		// driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);		// This is the global implicit wait.
 		
 		// To find 2 products, declare an array!
 		String[] itemsNeeded = {"Cucumber", "Brocolli", "Beetroot", "Carrot"};
@@ -23,9 +30,14 @@ public class base {
 		addItems(driver, itemsNeeded);
 		driver.findElement(By.cssSelector("img[alt='Cart']")).click();
 		driver.findElement(By.xpath("//button[contains(text(), 'PROCEED TO CHECKOUT')]")).click();
+		w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.promoCode")));
 		
 		driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
 		driver.findElement(By.cssSelector("button.promoBtn")).click();
+		
+		// This has been defined by the explicit wait in ll.22-23.
+		w.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("span.promoInfo")));
+		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
 		
 	}
 	
