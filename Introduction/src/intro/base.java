@@ -17,13 +17,12 @@ public class base {
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		
-		// System.setProperty("webdriver.chrome.driver", "C://Users//dadaskalopoulos//eclipse-workspace//chromedriver-win64//chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		// Explicit wait: this kind of wait targets a specific element!
 		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(5));
 		// driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);		// This is the global implicit wait.
 		
-		// To find 2 products, declare an array!
+		// To find several products, declare an array!
 		String[] itemsNeeded = {"Cucumber", "Brocolli", "Beetroot", "Carrot"};
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		Thread.sleep(3000);
@@ -55,7 +54,7 @@ public class base {
 				String[] name = products.get(i).getText().split("-");
 				String formattedName = name[0].trim();									
 				
-				// Remove space after "Brocolli ".
+				// Remove space after "Broccoli ".
 				// Format to get actual vegetable name; it will fail if it doesn't see the " - 1 Kg".  When you split the string "Brocolli - 1 Kg", you are creating an array of two 
 				// elements, one with "Broccoli " & the other with " - 1 Kg".  You just want the first element of the array. 
 				// Check whether name you extracted is present in the array or not; convert array into array list for easy search!
