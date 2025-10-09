@@ -14,7 +14,7 @@ public class JavaScriptExecutor {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 		
-		JavascriptExecutor js = (JavascriptExecutor)driver;	// You are casting the driver to JavaScript executor!
+		JavascriptExecutor js = (JavascriptExecutor)driver;		// You are casting the driver to JavaScript executor!
 		
 		js.executeScript("scrollBy(0,500)");
 		Thread.sleep(3000);
