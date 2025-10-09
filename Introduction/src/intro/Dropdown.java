@@ -8,6 +8,7 @@ public class Dropdown {
 
 	public static void main(String[] args) throws InterruptedException {
 		// This is for the From and To dropdowns
+		// NOTE: for another dropdown example, see Assignment6.java ll.21-23.
 		
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");

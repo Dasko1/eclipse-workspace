@@ -37,3 +37,6 @@ public class WindowHandlingAssignment {
 		driver.quit();
 	}
 }
+checkbox
+dropdown
+ll
